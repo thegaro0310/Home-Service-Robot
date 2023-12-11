@@ -19,16 +19,16 @@ xterm -e "cd $(pwd)/../..;
 source devel/setup.bash;
 roslaunch turtlebot_gazebo amcl_demo.launch map_file:=$(pwd)/../../src/map/map.yaml " &
 
-sleep 5
+sleep 15
 
 # <><><><><><>
 # --- RVIZ ---
 # <><><><><><>
 xterm -e "cd $(pwd)/../..;
 source devel/setup.bash;
-roslaunch turtlebot_rviz_launchers view_navigation.launch rviz_config_file:=$(pwd)/../rvizConfig/home_service.rviz" &
+roslaunch turtlebot_rviz_launchers view_navigation.launch file_config:=$(pwd)/../rvizConfig/home_service.rviz" &
 
-sleep 25 # keeping large to enable visualization
+sleep 15 # keeping large to enable visualization
 
 # <><><><><><>
 # ADD MARKERS
@@ -36,4 +36,4 @@ sleep 25 # keeping large to enable visualization
 # launch add_markers node
 xterm -e "cd $(pwd)/../..;
 source devel/setup.bash;
-rosrun add_markers add_markers" &
+rosrun add_markers add_markers_test" &
